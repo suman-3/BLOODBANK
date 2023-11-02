@@ -1,0 +1,68 @@
+**********All Donar Details**********
+
+name-Arjun
+email-arjun@gmail.com
+phone-9832800571
+pass-#mon9732
+
+
+name-John
+email-john@gmail.com
+phone-9832800571
+pass-#mon9732
+
+
+name-Michel
+email-michel@gmail.com
+phone-9832800571
+pass-#mon9732
+
+
+name-Ronaldo
+email-ronaldo@gmail.com
+phone-9832800571
+pass-#mon9732
+
+
+name-Messi
+email-messi@gmail.com
+phone-9832800571
+pass-#mon9732
+
+*********All Hospitals Details********
+
+Hospital name-Nims Hospital
+Owner-Sai
+email-nims@gmail.com
+mobile-9832800571
+website-nims.com
+pass-#mon9732
+address-Shapoorji Sukhobrishti Complex
+
+
+Hospital name-Care Hospital
+Owner-Vivek
+email-care@gmail.com
+mobile-9832800571
+website-care.com
+pass-#mon9732
+address-Kolkata, New Town,700135
+
+
+*********All Organization Details********
+
+Organization name-CRM Blood Bank
+Owner-Suman
+email-mondalsumanrock20@gmail.com
+mobile-9832800571
+website-mon.com
+pass-#mon9732
+address-Shapoorji Sukhobrishti Complex
+
+Organization name-MLR Hospital
+Owner-Venkat
+email-mlr@gmail.com
+mobile-9732945701
+website-mlr.com
+pass-#mon9732
+address-Kolkata
