@@ -5,7 +5,10 @@ import OrgHospitalForm from "./OrgHospitalForm";
 import { RegisterUser } from "../../Api/users";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../redux/loadersSlice";
-import { getAntdInputValidation } from "../../utils/helpers";
+import {
+  getAntdInputValidation,
+  getMobInputValidation,
+} from "../../utils/helpers";
 
 const Register = () => {
   const [type, setType] = React.useState("donar");
@@ -37,6 +40,13 @@ const Register = () => {
       navigate("/");
     }
   }, []);
+
+  const isValidPassword = (password) => {
+    // Password must be at least 8 characters long, contain at least one uppercase letter, and one digit
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   return (
     <div className="flex h-screen items-center justify-center bg-primary ">
       <Form
@@ -87,14 +97,26 @@ const Register = () => {
             <Form.Item
               label="Mobile"
               name="mobile"
-              rules={getAntdInputValidation()}
+              rules={getMobInputValidation()}
             >
               <Input />
             </Form.Item>
             <Form.Item
               label="Password"
               name="password"
-              rules={getAntdInputValidation()}
+              rules={[
+                ...getAntdInputValidation(),
+                {
+                  validator: (_, value) => {
+                    if (isValidPassword(value)) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      "Password must be at least 8 characters long, contain at least one uppercase letter, and one digit."
+                    );
+                  },
+                },
+              ]}
             >
               <Input type="password" />
             </Form.Item>

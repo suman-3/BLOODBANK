@@ -20,6 +20,24 @@ export const getAntdInputValidation = () => {
 };
 
 
+export const getMobInputValidation = () => {
+  return [
+    {
+      required: true,
+      message: "Required",
+    },
+    {
+      validator: (_, value) => {
+        if (value && value.length === 10 && /^\d+$/.test(value)) {
+          return Promise.resolve();
+        }
+        return Promise.reject("Mobile number should be a 10-digit number.");
+      },
+    },
+  ];
+};
+
+
 export const getDateFormat = (date) => {
   return moment(date).format("DD MMM YYYY hh:mm A");
 }

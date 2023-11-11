@@ -1,7 +1,7 @@
 import { Form, Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React from "react";
-import { getAntdInputValidation } from "../../utils/helpers";
+import { getAntdInputValidation, getMobInputValidation } from "../../utils/helpers";
 
 const OrgHospitalForm = ({ type }) => {
   return (
@@ -19,7 +19,7 @@ const OrgHospitalForm = ({ type }) => {
       <Form.Item name="email" label="Email" rules={getAntdInputValidation()}>
         <Input />
       </Form.Item>
-      <Form.Item name="mobile" label="Mobile" rules={getAntdInputValidation()}>
+      <Form.Item name="mobile" label="Mobile"  rules={getMobInputValidation()}>
         <Input />
       </Form.Item>
       <Form.Item
