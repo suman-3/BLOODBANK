@@ -1,9 +1,17 @@
 import { Form, Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React from "react";
-import { getAntdInputValidation, getMobInputValidation } from "../../utils/helpers";
+import {
+  getAntdInputValidation,
+  getMobInputValidation,
+} from "../../utils/helpers";
 
 const OrgHospitalForm = ({ type }) => {
+  const isValidPassword = (password) => {
+    // Password must be at least 8 characters long, contain at least one uppercase letter, and one digit
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
+  };
   return (
     <>
       <Form.Item
@@ -19,7 +27,7 @@ const OrgHospitalForm = ({ type }) => {
       <Form.Item name="email" label="Email" rules={getAntdInputValidation()}>
         <Input />
       </Form.Item>
-      <Form.Item name="mobile" label="Mobile"  rules={getMobInputValidation()}>
+      <Form.Item name="mobile" label="Mobile" rules={getMobInputValidation()}>
         <Input />
       </Form.Item>
       <Form.Item
@@ -31,9 +39,21 @@ const OrgHospitalForm = ({ type }) => {
       </Form.Item>
 
       <Form.Item
-        name="password"
         label="Password"
-        rules={getAntdInputValidation()}
+        name="password"
+        rules={[
+          ...getAntdInputValidation(),
+          {
+            validator: (_, value) => {
+              if (isValidPassword(value)) {
+                return Promise.resolve();
+              }
+              return Promise.reject(
+                "Password must be at least 8 characters long, contain at least one uppercase letter, and one digit."
+              );
+            },
+          },
+        ]}
       >
         <Input type="password" />
       </Form.Item>
