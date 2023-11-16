@@ -1,5 +1,6 @@
 import moment from "moment";
 
+
 export const getLoggedInUserName = (user) => {
   if (user.userType === "donar") {
     return user.name;
@@ -16,8 +17,28 @@ export const getAntdInputValidation = () => {
       required: true,
       message: "Required",
     },
-  ];
+  ]
 };
+
+
+export const getMailInputValidation = () =>{
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return [
+    {
+      required: true,
+      message: "Required",
+    },
+    {
+      validator: (_, value) => {
+        if (value && !emailRegex.test(value)) {
+          return Promise.reject('Please enter a valid email address');
+        }
+        return Promise.resolve();
+      },
+    },
+  ];
+  
+}
 
 
 export const getMobInputValidation = () => {

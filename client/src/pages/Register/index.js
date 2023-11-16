@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { SetLoading } from "../../redux/loadersSlice";
 import {
   getAntdInputValidation,
+  getMailInputValidation,
   getMobInputValidation,
 } from "../../utils/helpers";
 
@@ -90,7 +91,7 @@ const Register = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={getAntdInputValidation()}
+              rules={getMailInputValidation()}
             >
               <Input />
             </Form.Item>
